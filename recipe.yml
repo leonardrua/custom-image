@@ -44,7 +44,7 @@ stages:
   - name: xanmod-kernel
     type: includes
     includes:
-      - modules/xanmod-kernel.yml
+      - modules/10-xanmod-kernel.yml
 
   # Put your custom actions above this comment
 
