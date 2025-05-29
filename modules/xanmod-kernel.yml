@@ -1,9 +1,11 @@
 name: xanmod-kernel
 type: shell
 commands:
-  - wget -O /tmp/xanmod-archive-keyring.deb https://dl.xanmod.org/archive-keyring.gpg
-  - dpkg -i /tmp/xanmod-archive-keyring.deb
-  - rm /tmp/xanmod-archive-keyring.deb
-  - echo 'deb http://deb.xanmod.org/ release main' | tee /etc/apt/sources.list.d/xanmod-kernel.list
+  - wget -qO - https://dl.xanmod.org/archive.key | sudo gpg --dearmor -vo /etc/apt/keyrings/xanmod-archive-keyring.gpg
+  - echo 'deb [signed-by=/etc/apt/keyrings/xanmod-archive-keyring.gpg] http://deb.xanmod.org releases main' | sudo tee /etc/apt/sources.list.d/xanmod-release.list
   - apt-get update
   - apt-get install -y linux-xanmod-x64v3
+  # Remove default Debian kernel packages
+  - apt-get remove --purge -y $(dpkg --list | grep linux-image- | grep -v xanmod | awk '{print $2}')
+  - apt-get remove --purge -y $(dpkg --list | grep linux-headers- | grep -v xanmod | awk '{print $2}')
+  - apt-get autoremove -y
