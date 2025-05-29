@@ -23,5 +23,8 @@
     "partLabelBoot": "vos-boot",
     "partLabelEfi": "vos-efi",
 
-    "libPathStates": "/var/lib/abroot/states"
+    "libPathStates": "/var/lib/abroot/states",
+      "PartCryptVar": "/dev/mapper/vos--var-var",
+    "thinProvisioning": true,
+     "thinInitVolume": "vos-init"
 }
