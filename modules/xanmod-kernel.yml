@@ -1,0 +1,9 @@
+name: xanmod-kernel
+type: shell
+commands:
+  - wget -O /tmp/xanmod-archive-keyring.deb https://dl.xanmod.org/archive-keyring.gpg
+  - dpkg -i /tmp/xanmod-archive-keyring.deb
+  - rm /tmp/xanmod-archive-keyring.deb
+  - echo 'deb http://deb.xanmod.org/ release main' | tee /etc/apt/sources.list.d/xanmod-kernel.list
+  - apt-get update
+  - apt-get install -y linux-xanmod-x64v3
