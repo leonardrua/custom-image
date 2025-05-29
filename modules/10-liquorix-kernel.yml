@@ -1,4 +1,4 @@
-name: xanmod-kernel
+name: liquorix-kernel
 type: shell
 commands:
   - curl -s 'https://liquorix.net/install-liquorix.sh' | bash
