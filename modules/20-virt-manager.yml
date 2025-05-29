@@ -1,0 +1,5 @@
+  - name: virt-manager # Sample module using the built-in Apt module to install packages
+    type: apt
+    source:
+      packages:
+      - virt-manager

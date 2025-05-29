@@ -23,11 +23,7 @@ stages:
 
   # Put your custom actions below this comment
 
-  - name: virt-manager # Sample module using the built-in Apt module to install packages
-    type: apt
-    source:
-      packages:
-      - virt-manager
+
 #
 #  - name: example-commands # Sample module demonstrating the Shell module with custom commands
 #   type: shell
@@ -45,6 +41,7 @@ stages:
     type: includes
     includes:
       - modules/10-xanmod-kernel.yml
+      - modules/20-virt-manager.yml
 
   # Put your custom actions above this comment
 
