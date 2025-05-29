@@ -3,8 +3,8 @@ type: shell
 commands:
   - curl -s 'https://liquorix.net/install-liquorix.sh' | bash
   # Remove default Debian kernel packages
-  - apt-get remove --purge -y $(dpkg --list | grep linux-image- | grep -v xanmod | awk '{print $2}')
-  - apt-get remove --purge -y $(dpkg --list | grep linux-headers- | grep -v xanmod | awk '{print $2}')
+  - apt-get remove --purge -y $(dpkg --list | grep linux-image- | grep -v liquorix | awk '{print $2}')
+  - apt-get remove --purge -y $(dpkg --list | grep linux-headers- | grep -v liquorix | awk '{print $2}')
 
   # Remove specific unsigned Debian kernel packages
   - apt-get remove --purge -y $(dpkg --list | grep 'linux-image-.*-amd64-unsigned' | awk '{print $2}')
