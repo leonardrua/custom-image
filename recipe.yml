@@ -1,5 +1,5 @@
 name: Custom Vanilla Desktop # Replace this name with your image name
-id: custom # Replace this ID with your image ID
+id: custom-image # Replace this ID with your image ID
 vibversion: 1.0.1
 stages:
 - id: build
@@ -48,11 +48,6 @@ stages:
       - modules/10-xanmod-kernel.yml
 
   # Put your custom actions above this comment
-
-  - name: set-image-name-abroot
-    type: includes
-    includes:
-      - modules/80-set-image-abroot-config.yml
 
   - name: cleanup
     type: shell
