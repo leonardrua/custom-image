@@ -41,7 +41,12 @@ stages:
     type: includes
     includes:
       - modules/10-xanmod-kernel.yml
-      - modules/20-virt-manager.yml
+
+  - name: virt-manager # Sample module using the built-in Apt module to install packages
+    type: apt
+    source:
+      packages:
+      - virt-manager
 
   # Put your custom actions above this comment
 
