@@ -40,12 +40,16 @@ stages:
   - name: modules
     type: includes
     includes:
-      - modules/10-xanmod-kernel.yml
+      - modules/10-liquorix-kernel.yml
 
   - name: virt-manager # Sample module using the built-in Apt module to install packages
     type: apt
     source:
       packages:
+      - qemu-kvm 
+      - libvirt-daemon-system 
+      - libvirt-clients 
+      - bridge-utils
       - virt-manager
 
   # Put your custom actions above this comment

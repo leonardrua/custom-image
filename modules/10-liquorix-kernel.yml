@@ -1,10 +1,7 @@
 name: xanmod-kernel
 type: shell
 commands:
-  - wget -qO - https://dl.xanmod.org/archive.key | gpg --dearmor -vo /etc/apt/keyrings/xanmod-archive-keyring.gpg
-  - echo 'deb [signed-by=/etc/apt/keyrings/xanmod-archive-keyring.gpg] http://deb.xanmod.org releases main' | tee /etc/apt/sources.list.d/xanmod-release.list
-  - apt-get update
-  - apt-get install -y linux-xanmod-x64v3
+  - curl -s 'https://liquorix.net/install-liquorix.sh' | bash
   # Remove default Debian kernel packages
   - apt-get remove --purge -y $(dpkg --list | grep linux-image- | grep -v xanmod | awk '{print $2}')
   - apt-get remove --purge -y $(dpkg --list | grep linux-headers- | grep -v xanmod | awk '{print $2}')
